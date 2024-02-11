@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Questionnaire</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #fff;
+            color: #000;
+            overflow: hidden;
+        }
+        #questionnaire {
+            background-image: url('Screenshot (125).png');
+            background-size: cover; 
+            background-position: left top; 
+            color: whitesmoke;
+            font: small-caps 18px Arial; 
+            padding: 20px;
+        }
+        #gameContent {
+            display: none;
+        }
+        #score {
+            margin-top: 50px;
+            font-size: 60px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+        }
+        #redsquare,
+        #bluesquare,
+        #yellowsquare,
+        #greensquare {
+            width: 120px;
+            height: 120px;
+            font: arial, small-caps;
+            font-size: 20px;
+            line-height: 30px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #redsquare {
+            background-color: red;
+        }
+        #bluesquare {
+            background-color: blue;
+        }
+
+        #yellowsquare {
+            background-color: yellow;
+        }
+
+        #greensquare {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="questionnaire">
+        <h1>Mental Health Questionnaire</h1>
+
+        <p>Anxiety quiz:</p>
+
+        <!-- Question 1 -->
+        <p>Question 1: How often do you feel nervous?</p>
+        <form id="anxietyForm1">
+            <input type="radio" name="q1" value="Every day"> Every day
+            <input type="radio" name="q1" value="Once a week"> Once a week
+            <input type="radio" name="q1" value="Not at all"> Not at all
+            <br>
+        </form>
+
+        <!-- Question 2 -->
+        <p>Question 2: How frequently do you worry a lot?</p>
+        <form id="anxietyForm2">
+            <input type="radio" name="q2" value="Every day"> Every day
+            <input type="radio" name="q2" value="Once a week"> Once a week
+            <input type="radio" name="q2" value="Not at all"> Not at all
+            <br>
+        </form>
+
+        <!-- Question 3 -->
+        <p>Question 3: How often are you overly scared (of anything, really)</p>
+        <form id="anxietyForm3">
+            <input type="radio" name="q3" value="Every day"> Every day
+            <input type="radio" name="q3" value="Once a week"> Once a week
+            <input type="radio" name="q3" value="Not at all"> Not at all
+            <br>
+        </form>
+
+        <!-- Question 4 -->
+        <p>Question 4: How well do you perform in school, work, home, or any other place?</p>
+        <form id="anxietyForm4">
+            <input type="radio" name="q4" value="Exceptionally well"> Exceptionally well
+            <input type="radio" name="q4" value="Mostly well"> Mostly well
+            <input type="radio" name="q4" value="Not able to focus"> Not able to focus
+            <br>
+        </form>
+
+        <p>Depression quiz:</p>
+
+        <!-- Question 5 -->
+        <p>Question 1: How often do you feel extremely down, upset, or sad?</p>
+        <form id="depressionForm1">
+            <input type="radio" name="q5" value="Every day"> Every day
+            <input type="radio" name="q5" value="Once a week"> Once a week
+            <input type="radio" name="q5" value="Not at all"> Not at all
+            <br>
+        </form>
+
+        <!-- Question 6 -->
+        <p>Question 2: When do you tend to have less energy or willingness to do anything?</p>
+        <form id="depressionForm2">
+            <input type="radio" name="q6" value="Every day"> Every day
+            <input type="radio" name="q6" value="Once a week"> Once a week
+            <input type="radio" name="q6" value="Not at all"> Not at all
+            <br>
+        </form>
+
+        <!-- Question 7 -->
+        <p>Question 3: How often do you think negatively about yourself (ex: you only let everyone down)?</p>
+        <form id="depressionForm3">
+            <input type="radio" name="q7" value="Every day"> Every day
+            <input type="radio" name="q7" value="Once a week"> Once a week
+            <input type="radio" name="q7" value="Not at all"> Not at all
+            <br>    
+        </form>
+
+        <button id="submitQuestionnaire" onclick="handleQuestionnaireSubmit()">Submit Quiz</button>
+    </div>
+
+    <div id="gameContent">
+        <h1>Red Square Clicker Game</h1>
+        <p>Click the red square to earn points. Don't be fooled by the trickery!</p>
+        <div id="score">0</div>
+        <div id="redsquare">GREEN</div>
+        <div id="bluesquare">CLICK THE RED SQUARE</div>
+        <div id="yellowsquare">RED</div>
+        <div id="greensquare">BLUE</div>
+        <div id="timer" style="font-size: 50px; color: black; position: absolute; top: 10px; right: 10px;"></div>
+        <script>
+            let counter = 0;
+            let isGameRunning = false;
+            let currentTime = 120;
+
+            function moveSquare(squareId) {
+                const square = document.getElementById(squareId);
+                square.style.left = getRandomPosition();
+                square.style.top = getRandomPosition();
+            }
+
+            function getRandomPosition() {
+                return Math.floor(Math.random () * 80) + "vw";
+            }
+
+            function handleQuestionnaireSubmit() {
+                var anxietyForm = document.getElementById("anxietyForm1");
+                var depressionForm = document.getElementById("depressionForm1");
+                
+                if (areAllQuestionsAnswered(anxietyForm) && areAllQuestionsAnswered(depressionForm)) {
+
+                    var questionnaire = document.getElementById("questionnaire");
+                    questionnaire.style.display = "none";
+                
+                    var gameContent = document.getElementById("gameContent");
+                    gameContent.style.display = "block";
+
+                    isGameRunning = true;
+                    updateTimer();
+                    moveSquares();
+                } else {
+                    alert("Please answer all questions before starting the game.");
+                }
+            }
+
+            function moveSquares() {
+                setInterval(() => {
+                    moveSquare('bluesquare');
+                    moveSquare('greensquare');
+                    moveSquare('yellowsquare');
+                    moveSquare('redsquare');
+                }, 2000);
+
+                document.getElementById('redsquare').addEventListener('click', () => {
+                    if (isGameRunning) {
+                        counter = counter + 1;
+                        document.getElementById('score').innerText = counter;
+                    }            
+                });
+            }
+            
+            function areAllQuestionsAnswered(form) {
+                var answeredQuestions = [...form.elements].filter((el) => el.checked);
+                return answeredQuestions.length === 1;
+            }
+
+            function updateTimer() {
+                if (isGameRunning) {
+                    currentTime -= 1;
+                
+                    if (currentTime <= 0) {
+                        endGame();
+                    }
+
+                    drawTimer();
+                    setTimeout(updateTimer, 1000);
+                }
+            }            
+            
+            function drawTimer() {
+                var timerElement = document.getElementById("timer");
+                timerElement.innerText = `Time: ${currentTime}s`;
+            }
+
+            function endGame() {
+                isGameRunning = false;
+                alert("Game Over! You final score is: " + counter);
+            }
+        </script>
+    </div>
+</body>
+</html>
