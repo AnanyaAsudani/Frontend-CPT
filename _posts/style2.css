@@ -1,20 +1,44 @@
-.memory-game {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.cards-grid {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
 }
 
 .card {
+    position: relative;
     width: 100px;
     height: 100px;
-    background-color: #ccc;
     border-radius: 5px;
+    background-color: #f0f0f0;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.card-front {
+    z-index: 2;
+}
+
+.card-back {
+    z-index: 1;
+}
+
+.flipped .card-front {
+    display: none;
+}
+.flipped .card-black {
+    display: flex;
 }
