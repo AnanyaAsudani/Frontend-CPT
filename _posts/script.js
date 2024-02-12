@@ -3,6 +3,10 @@ var block1 = document.getElementById("block1");
 var block2 = document.getElementById("block2");
 var counter=0;
 
+character.innerHTML = '🦕';
+block1.innerHTML = '🌵';
+block2.innerHTML = '🌵';
+
 function jump(){
     if(character.classList.contains("animate")) {
         return;
