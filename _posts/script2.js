@@ -39,17 +39,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkForMatch() {
         const [card1, card2] = flippedCards;
-        const symbol1 = card1.querySelector('.symbol-front')?.textContent;
-        const symbol2 = card2.querySelector('.symbol-front')?.textContent;
+        const symbol1 = card1.querySelector('.symbol-back')?.textContent;
+        const symbol2 = card2.querySelector('.symbol-back')?.textContent;
 
         if (symbol1 === symbol2) {
+            card1.removeEventListener('click', flipCard);
+            card2.removeEventListener('click', flipCard);
             flippedCards = [];
             return;
         }
 
-        flipCard(card1);
-        flipCard(card2);
-        flippedCards = [];
+        setTimeout(() => {
+            flipCard(card1);
+            flipCard(card2);
+            flippedCards = [];
+        }, 1000);
     }
 
     function shuffle(array) {
