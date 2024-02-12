@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.classList.add('card');
         const front = document.createElement('span');
         front.classList.add('symbol-front');
-        front.textContent = '❓'; 
+        front.textContent = symbol; 
         const back = document.createElement('span');
         back.classList.add('symbol-back');
         back.textContent = '❓';
