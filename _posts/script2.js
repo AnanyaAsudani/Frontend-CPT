@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         front.classList.add('symbol-front');
         front.textContent = '❓'; 
         const back = document.createElement('span');
-        back.classList.add('❓');
-        back.textContent = symbol;
+        back.classList.add('symbol-back');
+        back.textContent = '❓';
         card.appendChild(front);
         card.appendChild(back);
         cardsContainer.appendChild(card);
