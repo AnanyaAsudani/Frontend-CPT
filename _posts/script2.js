@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         front.classList.add('symbol-front');
         front.textContent = '❓'; 
         const back = document.createElement('span');
-        back.classList.add('symbol-back');
+        back.classList.add('❓');
         back.textContent = symbol;
         card.appendChild(front);
         card.appendChild(back);
