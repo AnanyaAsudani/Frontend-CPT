@@ -28,6 +28,6 @@ body {
 .card .symbol {
     display: none; 
 }
-.card.flipped .symbol {
+.card.flipped > .symbol {
     display: block; 
 }
