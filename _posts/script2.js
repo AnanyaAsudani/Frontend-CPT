@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         card.classList.add('card');
         const front = document.createElement('span');
         front.classList.add('symbol-front');
-        front.textContent = symbol;
+        front.textContent = '❓';
         const back = document.createElement('span');
         back.classList.add('symbol-back');
-        back.textContent = '❓';
+        back.textContent = symbol;
         card.appendChild(front); 
         card.appendChild(back);
         cardsContainer.appendChild(card);
