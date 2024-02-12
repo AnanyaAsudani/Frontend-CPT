@@ -1,57 +1,77 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-#game{
+
+#game {
     width: 500px;
     height: 200px;
-    border: 1px;
     border: 1px solid black;
     margin: auto;
     position: relative;
 }
-#character{
-    width: 20px;
-    height: 50px;
-    background-color: red;
-    position:relative;
-    top: 150px;
+
+#bunny {
+    position: absolute;
+    bottom: 0;
+    font-size: 2em; 
 }
-.animate{
+
+.animate {
     animation: jump 1000ms linear;
 }
-@keyframes jump{
-    0%{top: 150px;}
-    30%{top: 100px;}
-    70%{top: 100px;}
-    100%{top: 150px;}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+    30% {
+        bottom: 100px;
+    }
+    70% {
+        bottom: 100px;
+    }
+    100% {
+        bottom: 0;
+    }
 }
 
-#block1{
-    background-color: blue;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 130px;
-    left: 500px;
-    animation: block 5s infinite linear;
+.carrot {
+    position: absolute;
+    bottom: 0;
+    font-size: 2em;
 }
 
-#block2{
-    background-color: blue;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 92px;
-    left: 500px;
-    animation: block 8s infinite linear;
-    z-index: -1;
+#carrot1 {
+    left: 50%;
+    transform: translateX(-50%);
+    animation: carrot-move1 5s infinite linear;
 }
-@keyframes block{
-    0%{left: 500px}
-    50%{left: 250px}
-    100%{left: -20px}
+
+#carrot2 {
+    left: 80%;
+    transform: translateX(-80%);
+    animation: carrot-move2 8s infinite linear;
 }
-p{
+
+@keyframes carrot-move1 {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -20%;
+    }
+}
+
+@keyframes carrot-move2 {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -20%;
+    }
+}
+
+p {
     text-align: center;
 }
