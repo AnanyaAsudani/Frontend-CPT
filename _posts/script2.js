@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     cards.forEach((symbol, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
-        const front = document.createElement('span');
-        front.classList.add('symbol-front');
-        front.textContent = symbol;
         const back = document.createElement('span');
         back.classList.add('symbol-back');
         back.textContent = '❓';
+        const front = document.createElement('span');
+        front.classList.add('symbol-front');
+        front.textContent = symbol;
         card.appendChild(front); 
         card.appendChild(back);
         cardsContainer.appendChild(card);

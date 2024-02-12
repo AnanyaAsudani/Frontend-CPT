@@ -26,19 +26,18 @@ body {
     position: relative;
 }
 
-.card.flipped {
-    transform: rotateY(180deg);
-}
-
-.symbol-front,
-.symbol-back {
-    position: absolute;
-}
-
 .symbol-front {
-    z-index: 1;
+    display: block;
 }
 
 .symbol-back {
     display: none;
+}
+
+.card.flipped .symbol-front {
+    display: none;
+}
+
+.card.flipped .symbol-back {
+    display: block;
 }
