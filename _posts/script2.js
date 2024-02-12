@@ -8,7 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     cards.forEach((symbol, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.innerHTML = `<span class="symbol-front">${symbol}</span><span class="symbol-back">❓</span>`;
+        const front = document.createElement('span');
+        front.classList.add('symbol-front');
+        front.textContent = symbol;
+        const back = document.createElement('span');
+        back.classList.add('symbol-back');
+        back.textContent = '❓';
+        card.appendChild(front);
+        card.appendChild(back);
         cardsContainer.appendChild(card);
     });
 
@@ -32,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkForMatch() {
         const [card1, card2] = flippedCards;
-        const symbol1 = card1.querySelector('.symbol-front')?.innerText;
-        const symbol2 = card2.querySelector('.symbol-front')?.innerText;
+        const symbol1 = card1.querySelector('.symbol-front').textContent;
+        const symbol2 = card2.querySelector('.symbol-front').textContent;
 
         if (symbol1 === symbol2) {
             flippedCards = [];
