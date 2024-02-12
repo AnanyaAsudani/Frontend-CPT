@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const back = document.createElement('span');
         back.classList.add('symbol-back');
         back.textContent = '❓';
-        card.appendChild(back);
         card.appendChild(front); 
+        card.appendChild(back);
         cardsContainer.appendChild(card);
     });
 
