@@ -4,16 +4,18 @@ body {
     color: #000;
     overflow: hidden;
 }
+
 #cards-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .card {
     width: 100px;
     height: 100px;
     margin: 10px;
-    background-color: #ddd; /* Card back color */
+    background-color: #ddd;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -23,12 +25,23 @@ body {
     transition: transform 0.3s ease;
     position: relative;
 }
+
 .card.flipped {
     background-color: #fff;
 }
-.card .symbol {
-    display: none; 
+
+.symbol-front {
+    display: block;
 }
-.card.flipped .symbol {
-    display: block; 
+
+.symbol-back {
+    display: none;
+}
+
+.card.flipped .symbol-front {
+    display: none;
+}
+
+.card-flipped .symbol-back {
+    display: block;
 }
