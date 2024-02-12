@@ -27,21 +27,18 @@ body {
 }
 
 .card.flipped {
-    background-color: #fff;
+    transform: rotateY(180deg);
+}
+
+.symbol-front,
+.symbol-back {
+    position: absolute;
 }
 
 .symbol-front {
-    display: block;
+    z-index: 1;
 }
 
 .symbol-back {
     display: none;
-}
-
-.card.flipped .symbol-front {
-    display: none;
-}
-
-.card-flipped .symbol-back {
-    display: block;
 }

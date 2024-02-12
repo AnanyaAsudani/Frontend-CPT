@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkForMatch() {
         const [card1, card2] = flippedCards;
-        const symbol1 = card1.querySelector('.symbol-front').textContent;
-        const symbol2 = card2.querySelector('.symbol-front').textContent;
+        const symbol1 = card1.querySelector('.symbol-front')?.textContent;
+        const symbol2 = card2.querySelector('.symbol-front')?.textContent;
 
         if (symbol1 === symbol2) {
             flippedCards = [];
