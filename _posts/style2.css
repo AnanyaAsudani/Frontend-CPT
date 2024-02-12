@@ -21,6 +21,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    position: relative;
 }
 .card.flipped {
     background-color: #fff;
@@ -28,6 +29,6 @@ body {
 .card .symbol {
     display: none; 
 }
-.card.flipped > .symbol {
+.card.flipped .symbol {
     display: block; 
 }

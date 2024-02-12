@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cardsContainer = document.getElementById('cards-grid');
-    const symbols = ['🌟', '🍎', '🍕', '🚀', '🐱', '🎈', '🍉', '🌸']; // Symbols array
+    const symbols = ['🌟', '🍎', '🍕', '🚀', '🐱', '🎈', '🍉', '🌸']; 
     const cards = [...symbols, ...symbols];
 
     shuffle(cards);
 
-    cards.forEach(symbol => {
+    cards.forEach((symbol, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.innerHTML = `<span class="symbol">${symbol}</span>`;
+        card.innerHTML = `<span class="symbol-front">${symbol}</span><span class="symbol-back">❓</span>`;
         cardsContainer.appendChild(card);
     });
 
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkForMatch() {
         const [card1, card2] = flippedCards;
-        const symbol1 = card1.querySelector('.symbol').innerText;
-        const symbol2 = card2.querySelector('.symbol').innerText;
+        const symbol1 = card1.querySelector('.symbol-front')?.innerText;
+        const symbol2 = card2.querySelector('.symbol-front')?.innerText;
 
         if (symbol1 === symbol2) {
             flippedCards = [];
