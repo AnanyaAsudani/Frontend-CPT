@@ -1,3 +1,14 @@
+---
+toc: false
+comments: true
+layout: post
+title: Diagnostic
+description: Diagnostic
+permalink: /diagnostic
+type: tangibles
+courses: { compsci: {week: 1} }
+---
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +43,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Mental Health Questionnaire</h1>
+    <img src="https://i.postimg.cc/Vr65MXCg/image.png" width=auto height="100px"> 
+        <h1>Mental Health
+        Questionnaire</h1>
         <form id="questionnaireForm">
             <h2>how often do you feel tired on a daily basis. Always, sometimes, or never?</h2> 
             <label for="question1">Question 1:</label>
