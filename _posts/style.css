@@ -14,7 +14,7 @@
 #bunny {
     position: absolute;
     bottom: 0;
-    font-size: 2em; 
+    font-size: 2em; /* Adjust font size for the bunny */
 }
 
 .animate {
@@ -39,7 +39,7 @@
 .carrot {
     position: absolute;
     bottom: 0;
-    font-size: 2em;
+    font-size: 2em; /* Adjust font size for the carrots */
 }
 
 #carrot1 {
