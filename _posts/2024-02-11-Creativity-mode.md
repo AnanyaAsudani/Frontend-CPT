@@ -1,3 +1,14 @@
+---
+toc: true
+comments: true
+layout: post
+title: Creativity
+description: Creativity
+permalink: /creativity
+type: tangibles
+courses: { compsci: {week: 1} }
+---
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,8 +42,8 @@
 <body>
     <div>
         <h1>Select a Game</h1>
-        <button class="game-button" onclick="window.location.href='game1.html'">Game 1</button>
-        <button class="game-button" onclick="window.location.href='game2.html'">Game 2</button>
+        <button onclick="window.location.href='{{site.baseurl}}/zengarden'">Zen Garden</button>
+        <button onclick="window.location.href='{{site.baseurl}}/breatheback'">Breathe</button>
         <button class="game-button" onclick="window.location.href='game3.html'">Game 3</button>
         <button class="game-button" onclick="window.location.href='game4.html'">Game 4</button>
         <button class="game-button" onclick="window.location.href='game5.html'">Game 5</button>

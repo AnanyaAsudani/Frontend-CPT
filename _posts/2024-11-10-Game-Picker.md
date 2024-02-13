@@ -31,8 +31,8 @@
 <body>
     <div>
         <h1>Select a Game Mode</h1>
-        <button onclick="window.location.href='creativity.html'">Creativity Mode</button>
-        <button onclick="window.location.href='diagnostic.html'">Diagnostic Mode</button>
+        <button onclick="window.location.href='{{site.baseurl}}/creativity'">Creativity Mode</button>
+        <button onclick="window.location.href='{{site.baseurl}}/diagnostic'">Diagnostic Mode</button>
     </div>
 </body>
 </html>
