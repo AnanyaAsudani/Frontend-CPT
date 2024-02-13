@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Coloring Page</title>
+    <style>
+        .coloringPage {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            direction: rtl;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Coloring Page</h1>
+    <div id="gridContainer"></div>
+
+    <script>
+        // Define colors
+        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
+
+        // Function to create coloring page
+        function createColoringPage() {
+            const coloringPage = document.createElement('div');
+            coloringPage.className = 'coloringPage';
+            coloringPage.onclick = color;
+
+            document.getElementById('gridContainer').appendChild(coloringPage);
+        }
+
+        // Function to change color on click
+        function color(event) {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            event.target.style.backgroundColor = randomColor;
+        }
+
+        // Create a 3x3 grid
+        for (let i = 0; i < 9; i++) {
+            createColoringPage();
+        }
+    </script>
+</body>
+</html>
