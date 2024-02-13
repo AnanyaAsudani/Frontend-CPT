@@ -2,8 +2,7 @@
 layout: home
 search_exclude: true
 ---
-A modified blog for CSA Based on Fastpages- Tirth Thakkar & Haseeb Beg   
+A mental health site, displaying various ways to maintain mental health care. Written by: Arushi, Ananya, Priya, and Sumedha.  
 
 
 
-# Posts
