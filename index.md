@@ -36,7 +36,7 @@ A mental health site, displaying various ways to maintain mental health care. Wr
     
     A little bit about us!       
     Hi, our names are Arushi, Ananya, Priya, and Sumedha. 
-    We are 15 and 16 years old and currently 
+    We are 15, 16, and 17 years old and currently 
     a sophmores/juniors at Del Norte High School in 
     San Diego, California. We are 
     Asian-American females with a desire to help others
