@@ -14,6 +14,7 @@ courses: { compsci: {week: 1} }
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Selection</title>
+    <text>Mind games can stimulate the release of neurotransmitters such as dopamine and serotonin, which are associated with feelings of pleasure and happiness. Completing puzzles or achieving milestones in games can lead to a sense of accomplishment and boost mood. Incorporating mind games into one's routine can contribute to overall mental health and well-being by promoting cognitive function, reducing stress, enhancing mood, and facilitating social interaction.</text>
     <style>
         body {
             background-color: #ffc0cb; /* Pink background color */
