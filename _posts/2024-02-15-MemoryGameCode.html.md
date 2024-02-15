@@ -19,13 +19,11 @@ courses: { compsci: {week: 8} }
             color: #000;
             overflow: hidden;
         }
-
         #cards-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .card {
             width: 100px;
             height: 100px;
@@ -40,19 +38,15 @@ courses: { compsci: {week: 8} }
             transition: transform 0.3s ease;
             position: relative;
         }
-
         .symbol-front {
             display: block;
         }
-
         .symbol-back {
             display: none;
         }
-
         .card.flipped .symbol-front {
             display: none;
         }
-
         .card.flipped .symbol-back {
             display: block;
         }
@@ -62,13 +56,19 @@ courses: { compsci: {week: 8} }
     <div id="cards-grid">
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                await initializeMemoryGame(); // Assuming this function initializes the memory game
+            } catch (error) {
+                console.error('Error initializing memory game:', error);
+                // Handle error (e.g., display a message to the user)
+            }
+        });
+        async function initializeMemoryGame() {
             const cardsContainer = document.getElementById('cards-grid');
-            const symbols = ['🌟', '🍎', '🍕', '🚀', '🐱', '🎈', '🍉', '🌸']; 
+            const symbols = ['🌟', '🍎', '🍕', '🚀', '🐱', '🎈', '🍉', '🌸'];
             const cards = [...symbols, ...symbols];
-
             shuffle(cards);
-
             cards.forEach((symbol, index) => {
                 const card = document.createElement('div');
                 card.classList.add('card');
@@ -78,55 +78,46 @@ courses: { compsci: {week: 8} }
                 const back = document.createElement('span');
                 back.classList.add('symbol-back');
                 back.textContent = symbol;
-                card.appendChild(front); 
+                card.appendChild(front);
                 card.appendChild(back);
                 cardsContainer.appendChild(card);
             });
-
             let flippedCards = [];
-
             cardsContainer.addEventListener('click', function(event) {
                 const clickedCard = event.target.closest('.card');
                 if (!clickedCard || flippedCards.length >= 2 || clickedCard.classList.contains('flipped')) return;
-
                 flipCard(clickedCard);
                 flippedCards.push(clickedCard);
-
                 if (flippedCards.length === 2) {
                     setTimeout(checkForMatch, 1000);
                 }
             });
-
             function flipCard(card) {
                 card.classList.toggle('flipped');
             }
-
             function checkForMatch() {
                 const [card1, card2] = flippedCards;
                 const symbol1 = card1.querySelector('.symbol-back')?.textContent;
                 const symbol2 = card2.querySelector('.symbol-back')?.textContent;
-
                 if (symbol1 === symbol2) {
                     card1.removeEventListener('click', flipCard);
                     card2.removeEventListener('click', flipCard);
                     flippedCards = [];
                     return;
                 }
-
                 setTimeout(() => {
                     flipCard(card1);
                     flipCard(card2);
                     flippedCards = [];
                 }, 1000);
             }
-
             function shuffle(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]];
                 }
             }
-        });
+        }
     </script>
 </body>
 </html>
