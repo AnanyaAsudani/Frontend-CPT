@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+---
+toc: true
+comments: true
+layout: post
+title: Memory
+permalink: /memory
+type: tangibles
+courses: { compsci: {week: 8} }
+---
 <html lang="en">
 <head>
     <meta charset="UTF-8">
