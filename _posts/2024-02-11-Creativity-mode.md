@@ -45,7 +45,7 @@ courses: { compsci: {week: 1} }
         <h1>Select a Game</h1>
         <button onclick="window.location.href='{{site.baseurl}}/zengarden'">Zen Garden</button>
         <button onclick="window.location.href='{{site.baseurl}}/breatheback'">Breathe</button>
-        <button onclick="window.location.href='{{site.baseurl}}/MemoryGameCode.html'">Memory</button>
+        <button onclick="window.location.href='MemoryGameCode.html'">Memory</button>
         <button class="game-button" onclick="window.location.href='game4.html'">Game 4</button>
         <button class="game-button" onclick="window.location.href='game5.html'">Game 5</button>
         <button class="game-button" onclick="window.location.href='game6.html'">Game 6</button>
