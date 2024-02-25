@@ -1,9 +1,9 @@
 const imagePaths = [
     'star.png',
-    'image2.png',
-    'image3.png',
-    'image4.png',
-    'image5.png',
+    'apple.png',
+    'pizza.png',
+    'rocket.png',
+    'cat.png',
     'image6.png',
     'image7.png',
     'image8.png'
