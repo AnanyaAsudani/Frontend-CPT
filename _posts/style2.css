@@ -30,14 +30,16 @@ body {
     display: block;
 }
 
-.symbol-back {
+.symbol-back img {
     display: none;
+    width: 80px; 
+    height: 80px;
 }
 
 .card.flipped .symbol-front {
     display: none;
 }
 
-.card.flipped .symbol-back {
+.card.flipped .symbol-back img {
     display: block;
 }
