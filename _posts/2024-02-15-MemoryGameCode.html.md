@@ -18,7 +18,6 @@ courses: { compsci: {week: 8} }
             background-color: #fff;
             color: #000;
             overflow: hidden;
-            font-family: 'Segoe UI Emoji', sans-serif;
         }
         #cards-grid {
             display: flex;
@@ -42,13 +41,15 @@ courses: { compsci: {week: 8} }
         .symbol-front {
             display: block;
         }
-        .symbol-back {
+        .symbol-back img {
             display: none;
+            width: 80px;
+            height: 80px;
         }
         .card.flipped .symbol-front {
             display: none;
         }
-        .card.flipped .symbol-back {
+        .card.flipped .symbol-back img {
             display: block;
         }
     </style>
@@ -59,14 +60,14 @@ courses: { compsci: {week: 8} }
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             try {
-                await initializeMemoryGame(); 
+                await initializeMemoryGame();
             } catch (error) {
                 console.error('Error initializing memory game:', error);
             }
         });
         async function initializeMemoryGame() {
             const cardsContainer = document.getElementById('cards-grid');
-            const symbols = ['🌟', '🍎', '🍕', '🚀', '😸', '🎈', '🍉', '🌸']; 
+            const symbols = ['star.png', 'apple.png', 'pizza.png', 'rocket.png', 'cat.png', 'balloon.png', 'watermelon.png', 'flower.png'];
             const cards = [...symbols, ...symbols];
             shuffle(cards);
             cards.forEach((symbol, index) => {
@@ -77,7 +78,9 @@ courses: { compsci: {week: 8} }
                 front.textContent = '❓';
                 const back = document.createElement('span');
                 back.classList.add('symbol-back');
-                back.textContent = symbol;
+                const image = document.createElement('img');
+                image.src = symbol;
+                back.appendChild(image);
                 card.appendChild(front);
                 card.appendChild(back);
                 cardsContainer.appendChild(card);
@@ -97,8 +100,8 @@ courses: { compsci: {week: 8} }
             }
             function checkForMatch() {
                 const [card1, card2] = flippedCards;
-                const symbol1 = card1.querySelector('.symbol-back')?.textContent;
-                const symbol2 = card2.querySelector('.symbol-back')?.textContent;
+                const symbol1 = card1.querySelector('.symbol-back img').src;
+                const symbol2 = card2.querySelector('.symbol-back img').src;
                 if (symbol1 === symbol2) {
                     card1.removeEventListener('click', flipCard);
                     card2.removeEventListener('click', flipCard);
