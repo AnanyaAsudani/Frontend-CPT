@@ -18,6 +18,7 @@ courses: { compsci: {week: 8} }
             background-color: #fff;
             color: #000;
             overflow: hidden;
+            font-family: 'Segoe UI Emoji', sans-serif;
         }
         #cards-grid {
             display: flex;
@@ -58,15 +59,14 @@ courses: { compsci: {week: 8} }
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             try {
-                await initializeMemoryGame(); // Assuming this function initializes the memory game
+                await initializeMemoryGame(); 
             } catch (error) {
                 console.error('Error initializing memory game:', error);
-                // Handle error (e.g., display a message to the user)
             }
         });
         async function initializeMemoryGame() {
             const cardsContainer = document.getElementById('cards-grid');
-            const symbols = ['🌟', '🍎', '🍕', '🚀', '🐱', '🎈', '🍉', '🌸'];
+            const symbols = ['🌟', '🍎', '🍕', '🚀', '😸', '🎈', '🍉', '🌸']; 
             const cards = [...symbols, ...symbols];
             shuffle(cards);
             cards.forEach((symbol, index) => {
