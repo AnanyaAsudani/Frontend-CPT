@@ -1,6 +1,6 @@
 const imagePaths = [
     'star.png',
-    'image2.png',
+    'apple.png',
     'image3.png',
     'image4.png',
     'image5.png',
