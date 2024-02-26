@@ -5,6 +5,6 @@ const imagePaths = [
     'rocket.png',
     'cat.png',
     'balloon.png',
-    'image7.png',
+    'watermelon.png',
     'image8.png'
 ];
