@@ -1,11 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        await initializeMemoryGame(); 
+    } catch (error) {
+        console.error('Error initializing memory game:', error);
+    }
+});
+
+async function initializeMemoryGame() {
     const cardsContainer = document.getElementById('cards-grid');
-    const symbols = ['🌟', '🍎', '🍕', '🚀', '🐱', '🎈', '🍉', '🌸']; 
-    const cards = [...symbols, ...symbols];
-
-    shuffle(cards);
-
-    cards.forEach((symbol, index) => {
+    shuffle(imagePaths);
+    imagePaths.forEach((path, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
         const front = document.createElement('span');
@@ -13,53 +17,46 @@ document.addEventListener('DOMContentLoaded', function() {
         front.textContent = '❓';
         const back = document.createElement('span');
         back.classList.add('symbol-back');
-        back.textContent = symbol;
-        card.appendChild(front); 
+        const image = document.createElement('img');
+        image.src = path;
+        back.appendChild(image);
+        card.appendChild(front);
         card.appendChild(back);
         cardsContainer.appendChild(card);
     });
-
     let flippedCards = [];
-
     cardsContainer.addEventListener('click', function(event) {
         const clickedCard = event.target.closest('.card');
         if (!clickedCard || flippedCards.length >= 2 || clickedCard.classList.contains('flipped')) return;
-
         flipCard(clickedCard);
         flippedCards.push(clickedCard);
-
         if (flippedCards.length === 2) {
             setTimeout(checkForMatch, 1000);
         }
     });
-
     function flipCard(card) {
         card.classList.toggle('flipped');
     }
-
     function checkForMatch() {
         const [card1, card2] = flippedCards;
-        const symbol1 = card1.querySelector('.symbol-back')?.textContent;
-        const symbol2 = card2.querySelector('.symbol-back')?.textContent;
-
+        const symbol1 = card1.querySelector('.symbol-back img').src;
+        const symbol2 = card2.querySelector('.symbol-back img').src;
         if (symbol1 === symbol2) {
             card1.removeEventListener('click', flipCard);
             card2.removeEventListener('click', flipCard);
             flippedCards = [];
             return;
         }
-
         setTimeout(() => {
             flipCard(card1);
             flipCard(card2);
             flippedCards = [];
         }, 1000);
     }
-
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
-});
+}
