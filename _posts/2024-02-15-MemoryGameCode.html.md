@@ -17,7 +17,6 @@ courses: { compsci: {week: 8} }
 <body>
     <div id="cards-grid">
     </div>
-    <script src="imagePaths.js" defer></script>
     <script src="script2.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', async function() {

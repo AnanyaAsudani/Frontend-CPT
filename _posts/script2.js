@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function() {
     try {
-        await initializeMemoryGame(imagePaths);
+        await initializeMemoryGame(imagePaths); 
     } catch (error) {
         console.error('Error initializing memory game:', error);
     }
@@ -12,8 +12,13 @@ async function initializeMemoryGame(imagePaths) {
     imagePaths.forEach((path, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
+
         const front = document.createElement('span');
         front.classList.add('symbol-front');
+        const questionMark = document.createElement('img');
+        questionMark.src = 'questionmark.png'; 
+        front.appendChild(questionMark);
+
         const back = document.createElement('span');
         back.classList.add('symbol-back');
         const image = document.createElement('img');
@@ -21,8 +26,10 @@ async function initializeMemoryGame(imagePaths) {
         back.appendChild(image);
         card.appendChild(front);
         card.appendChild(back);
+
         cardsContainer.appendChild(card);
     });
+
     let flippedCards = [];
     cardsContainer.addEventListener('click', function(event) {
         const clickedCard = event.target.closest('.card');
@@ -33,9 +40,11 @@ async function initializeMemoryGame(imagePaths) {
             setTimeout(checkForMatch, 1000);
         }
     });
+
     function flipCard(card) {
         card.classList.toggle('flipped');
     }
+
     function checkForMatch() {
         const [card1, card2] = flippedCards;
         const symbol1 = card1.querySelector('.symbol-back img').src;
@@ -52,6 +61,7 @@ async function initializeMemoryGame(imagePaths) {
             flippedCards = [];
         }, 1000);
     }
+
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -59,3 +69,14 @@ async function initializeMemoryGame(imagePaths) {
         }
     }
 }
+
+const imagePaths = [
+    'star.png',
+    'apple.png',
+    'pizza.png',
+    'rocket.png',
+    'cat.png',
+    'balloon.png',
+    'watermelon.png',
+    'flower.png'
+];
