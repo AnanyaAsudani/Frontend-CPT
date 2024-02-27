@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', async function() {
     try {
-        await initializeMemoryGame(); 
+        await initializeMemoryGame(imagePaths);
     } catch (error) {
         console.error('Error initializing memory game:', error);
     }
 });
 
-async function initializeMemoryGame() {
+async function initializeMemoryGame(imagePaths) {
     const cardsContainer = document.getElementById('cards-grid');
     shuffle(imagePaths);
     imagePaths.forEach((path, index) => {
@@ -14,7 +14,6 @@ async function initializeMemoryGame() {
         card.classList.add('card');
         const front = document.createElement('span');
         front.classList.add('symbol-front');
-        front.textContent = '❓';
         const back = document.createElement('span');
         back.classList.add('symbol-back');
         const image = document.createElement('img');

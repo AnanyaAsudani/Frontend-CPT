@@ -19,5 +19,14 @@ courses: { compsci: {week: 8} }
     </div>
     <script src="imagePaths.js" defer></script>
     <script src="script2.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                await initializeMemoryGame(imagePaths); 
+            } catch (error) {
+                console.error('Error initializing memory game:', error);
+            }
+        });
+    </script>
 </body>
 </html>
