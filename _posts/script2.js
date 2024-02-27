@@ -17,6 +17,7 @@ async function initializeMemoryGame(imagePaths) {
         front.classList.add('symbol-front');
         const questionMark = document.createElement('img');
         questionMark.src = 'questionmark.png'; 
+        questionMark.classList.add('question-mark');
         front.appendChild(questionMark);
 
         const back = document.createElement('span');
