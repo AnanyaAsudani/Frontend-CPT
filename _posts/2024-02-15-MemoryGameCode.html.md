@@ -5,8 +5,9 @@ layout: post
 title: Memory
 permalink: /memory
 type: tangibles
-courses: { compsci: {week: 8} }
+courses: { compsci: {week: 1} }
 ---
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
