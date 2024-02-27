@@ -128,14 +128,14 @@ courses: { compsci: {week: 1} }
             }
         }
         const imagePaths = [
-            'posts/images/star.png',
-            'posts/images/apple.png',
-            'posts/images/pizza.png',
-            'posts/images/rocket.png',
-            'posts/images/cat.png',
-            'posts/images/balloon.png',
-            'posts/images/watermelon.png',
-            'posts/images/flower.png'
+            'images/star.png',
+            'images/apple.png',
+            'images/pizza.png',
+            'images/rocket.png',
+            'images/cat.png',
+            'images/balloon.png',
+            'images/watermelon.png',
+            'images/flower.png'
         ];
     </script>
 </body>
