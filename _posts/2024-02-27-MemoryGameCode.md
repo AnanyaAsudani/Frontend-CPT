@@ -20,7 +20,6 @@ courses: { compsci: {week: 1} }
             color: #000;
             overflow: hidden;
         }
-
         #cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -63,7 +62,6 @@ courses: { compsci: {week: 1} }
 <body>
     <div id="cards-grid">
     </div>
-    
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             try {
