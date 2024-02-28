@@ -20,6 +20,7 @@ courses: { compsci: {week: 1} }
             color: #000;
             overflow: hidden;
         }
+
         #cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -62,10 +63,11 @@ courses: { compsci: {week: 1} }
 <body>
     <div id="cards-grid">
     </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             try {
-                await initializeMemoryGame(imagePaths.concat(imagePaths)); // Double the cards
+                await initializeMemoryGame(imagePaths.concat(imagePaths));
             } catch (error) {
                 console.error('Error initializing memory game:', error);
             }
