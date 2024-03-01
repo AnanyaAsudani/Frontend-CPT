@@ -60,9 +60,10 @@ courses: { compsci: {week: 1} }
     </style>
 </head>
 <body>
-    <div id="cards-grid">
+    <div id="cards-grid" path="{{site.baseurl}}/images/images/">
     </div>
     <script>
+        let path = document.getElementById("cards-grid").getAttribute("path");
         document.addEventListener('DOMContentLoaded', async function() {
             try {
                 await initializeMemoryGame(imagePaths.concat(imagePaths));
@@ -79,7 +80,7 @@ courses: { compsci: {week: 1} }
                 const front = document.createElement('span');
                 front.classList.add('symbol-front');
                 const questionMark = document.createElement('img');
-                questionMark.src = 'questionmark.png'; 
+                questionMark.src = path+ 'questionmark.png'; 
                 questionMark.classList.add('question-mark');
                 front.appendChild(questionMark);
                 const back = document.createElement('span');
@@ -128,14 +129,14 @@ courses: { compsci: {week: 1} }
             }
         }
         const imagePaths = [
-            'images/star.png',
-            'images/apple.png',
-            'images/pizza.png',
-            'images/rocket.png',
-            'images/cat.png',
-            'images/balloon.png',
-            'images/watermelon.png',
-            'images/flower.png'
+            path + 'star.png',
+            path + 'apple.png',
+            path + 'pizza.png',
+            path + 'rocket.png',
+            path + 'cat.png',
+            path + 'balloon.png',
+            path + 'watermelon.png',
+            path + 'flower.png'
         ];
     </script>
 </body>
