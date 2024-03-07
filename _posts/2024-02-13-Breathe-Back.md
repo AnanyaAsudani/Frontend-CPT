@@ -5,7 +5,7 @@ layout: post
 title: Breathe Back
 description: By monitoring breathing we promote a sense of calm in users which allows for individuals to feel at peace. We recommend using it if the user has symptoms of a panic attack or any trouble focusing. It promotes a calm and peaceful environment and allows users to feel less stressed to breathing exercises medically proven to benefit the user.
 permalink: /breatheback
-type: tangibles
+type: 
 courses: { compsci: {week: 1} }
 ---
 
